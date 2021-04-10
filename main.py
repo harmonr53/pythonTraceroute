@@ -177,15 +177,20 @@ def get_route(hostname):
 
                     tracelist2.append(tracelist1)
                     tracelist1.clear()
-                    if ipaddress.IPv4Address(src_ip) == destAddr:
-                        print(src_ip)
-                        print(destAddr)
-                        break
+                    # if ipaddress.IPv4Address(src_ip) == destAddr:
+                        # print(src_ip)
+                        # print(destAddr)
+                        # break
                     #Fill in end
                 else:
                     #Fill in start
                     #If there is an exception/error to your if statements, you should append that to your list here
-                    print("Looks like an error in the if statement")
+                    # print("Looks like an error in the if statement")
+                    tracelist1.append(str(ttl))
+                    tracelist1.append("Error in the if statement")
+
+                    tracelist2.append(tracelist1)
+                    tracelist1.clear()
                     #Fill in end
                 break
             finally:
