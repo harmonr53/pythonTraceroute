@@ -112,6 +112,7 @@ def get_route(hostname):
                     #You should add the list above to your all traces list
                     tracelist2.append(tracelist1)
                     tracelist1.clear()
+                    break
                     #Fill in end
                 recvPacket, addr = mySocket.recvfrom(1024)
                 timeReceived = time.time()
@@ -123,6 +124,7 @@ def get_route(hostname):
                     #You should add the list above to your all traces list
                     tracelist2.append(tracelist1)
                     tracelist1.clear()
+                    break
                     #Fill in end
             except timeout:
                 continue
@@ -203,5 +205,5 @@ def get_route(hostname):
     return tracelist2
 
 
-# if __name__ == '__main__':
-#     get_route("www.yahoo.com")
+if __name__ == '__main__':
+    get_route("www.yahoo.com")
