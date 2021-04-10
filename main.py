@@ -147,7 +147,7 @@ def get_route(hostname):
                     timeSent = struct.unpack("d", recvPacket[28:28 +
                     bytes])[0]
                     #Fill in start
-                    # print(str(ttl) + " " + str(round(((timeReceived - timeSent) * 1000.0))) + " " + str(ipaddress.IPv4Address(src_ip)) + " " + str(fqhostn))
+                    print(str(ttl) + " " + str(round(((timeReceived - timeSent) * 1000.0))) + " " + str(ipaddress.IPv4Address(src_ip)) + " " + str(fqhostn))
                     #You should add your responses to your lists here
                     tracelist1.append(str(ttl))
                     tracelist1.append(str(round(((timeReceived - timeSent) * 1000.0))))
@@ -169,7 +169,7 @@ def get_route(hostname):
                     timeSent = struct.unpack("d", recvPacket[28:28 + bytes])[0]
                     #Fill in start
                     #You should add your responses to your lists here and return your list if your destination IP is met
-                    # print(str(ttl) + " " + str(round(((timeReceived - timeSent) * 1000.0))) + " " + str(ipaddress.IPv4Address(src_ip)) + " " + str(fqhostn))
+                    print(str(ttl) + " " + str(round(((timeReceived - timeSent) * 1000.0))) + " " + str(ipaddress.IPv4Address(src_ip)) + " " + str(fqhostn))
                     tracelist1.append(str(ttl))
                     tracelist1.append(str(round(((timeReceived - timeSent) * 1000.0))))
                     tracelist1.append(str(ipaddress.IPv4Address(src_ip)))
@@ -177,6 +177,10 @@ def get_route(hostname):
 
                     tracelist2.append(tracelist1)
                     tracelist1.clear()
+                    if ipaddress.IPv4Address(src_ip) == destAddr:
+                        print(src_ip)
+                        print(destAddr)
+                        break
                     #Fill in end
                 else:
                     #Fill in start
@@ -186,8 +190,9 @@ def get_route(hostname):
                 break
             finally:
                 mySocket.close()
-                return tracelist2
+
+    return tracelist2
 
 
 if __name__ == '__main__':
-    get_route("no.no.e")
+    get_route("www.yahoo.com")
