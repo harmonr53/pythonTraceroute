@@ -180,7 +180,7 @@ def get_route(hostname):
                     tracelist1.append(str(fqhostn))
 
                     tracelist2.append(tracelist1)
-                    tracelist1.clear()
+                    return tracelist2
                     # if ipaddress.IPv4Address(src_ip) == destAddr:
                         # print(src_ip)
                         # print(destAddr)
